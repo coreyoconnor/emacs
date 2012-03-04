@@ -515,7 +515,7 @@ install-arch-indep: mkdir info install-etc
 	-set ${COPYDESTS} ; \
 	unset CDPATH; \
 	for dir in ${COPYDIR} ; do \
-	  if [ `(cd $$1 && /bin/pwd)` != `(cd $${dir} && /bin/pwd)` ] ; then \
+	  if [ `(cd $$1 && pwd)` != `(cd $${dir} && pwd)` ] ; then \
 	    rm -rf $$1 ; \
 	  fi ; \
 	  shift ; \
@@ -528,7 +528,7 @@ install-arch-indep: mkdir info install-etc
 	for dir in ${COPYDIR} ; do \
 	  dest=$$1 ; shift ; \
 	  [ -d $${dir} ] \
-	  && [ `(cd $${dir} && /bin/pwd)` != `(cd $${dest} && /bin/pwd)` ] \
+	  && [ `(cd $${dir} && pwd)` != `(cd $${dest} && pwd)` ] \
 	  && (echo "Copying $${dir} to $${dest}..." ; \
 	      (cd $${dir}; tar -chf - . ) \
 		| (cd $${dest}; umask 022; \
@@ -568,7 +568,7 @@ install-arch-indep: mkdir info install-etc
 	fi
 	-chmod a+r $(DESTDIR)${datadir}/emacs/site-lisp/subdirs.el
 	-unset CDPATH; \
-	if [ `(cd ./etc; /bin/pwd)` != `(cd $(DESTDIR)${docdir}; /bin/pwd)` ]; \
+	if [ `(cd ./etc; pwd)` != `(cd $(DESTDIR)${docdir}; pwd)` ]; \
 	then \
 	   fullversion=`./src/emacs --version | sed -n '1 s/GNU Emacs *//p'`; \
 	   if [ -f "./etc/DOC-$${fullversion}" ]; \
@@ -588,8 +588,8 @@ install-arch-indep: mkdir info install-etc
 	-unset CDPATH; \
 	if [ -r ./lisp ] \
 	   && [ -r ./lisp/simple.el ] \
-	   && [ x`(cd ./lisp; /bin/pwd)` != x`(cd $(DESTDIR)${lispdir}; /bin/pwd)` ] \
-	   && [ x`(cd ${srcdir}/lisp; /bin/pwd)` != x`(cd ./lisp; /bin/pwd)` ]; \
+	   && [ x`(cd ./lisp; pwd)` != x`(cd $(DESTDIR)${lispdir}; pwd)` ] \
+	   && [ x`(cd ${srcdir}/lisp; pwd)` != x`(cd ./lisp; pwd)` ]; \
 	then \
 	   echo "Copying lisp/*.el and lisp/*.elc to $(DESTDIR)${lispdir} ..." ; \
 	   (cd lisp; tar -chf - *.el *.elc) \
@@ -607,8 +607,8 @@ install-arch-indep: mkdir info install-etc
 	    done) \
 	else true; fi
 	-unset CDPATH; \
-	thisdir=`/bin/pwd`; \
-	if [ `(cd ${srcdir}/info && /bin/pwd)` != `(cd $(DESTDIR)${infodir} && /bin/pwd)` ]; \
+	thisdir=`pwd`; \
+	if [ `(cd ${srcdir}/info && pwd)` != `(cd $(DESTDIR)${infodir} && pwd)` ]; \
 	then \
 	  (cd $(DESTDIR)${infodir};  \
 	   if [ -f dir ]; then true; \
@@ -631,8 +631,8 @@ install-arch-indep: mkdir info install-etc
 	   done); \
 	else true; fi
 	-unset CDPATH; \
-	thisdir=`/bin/pwd`; \
-	if [ `(cd ${srcdir}/info && /bin/pwd)` != `(cd $(DESTDIR)${infodir} && /bin/pwd)` ]; \
+	thisdir=`pwd`; \
+	if [ `(cd ${srcdir}/info && pwd)` != `(cd $(DESTDIR)${infodir} && pwd)` ]; \
 	then \
 	  for elt in $(INFO_FILES); do \
 	    test "$(HAVE_MAKEINFO)" = "no" && test ! -f $$elt && continue; \
@@ -641,7 +641,7 @@ install-arch-indep: mkdir info install-etc
 	  done; \
 	else true; fi
 	-chmod -R a+r $(DESTDIR)${datadir}/emacs/${version} ${COPYDESTS}
-	thisdir=`/bin/pwd`; \
+	thisdir=`pwd`; \
 	cd ${mansrcdir}; \
 	for page in ${MAN_PAGES}; do \
 	  (cd $${thisdir}; \
@@ -712,8 +712,8 @@ uninstall:
 	-unset CDPATH; \
 	for dir in $(DESTDIR)${lispdir} $(DESTDIR)${etcdir} ; do 	\
 	  if [ -d $${dir} ]; then			\
-	    case `(cd $${dir} ; /bin/pwd)` in		\
-	      `(cd ${srcdir} ; /bin/pwd)`* ) ;;		\
+	    case `(cd $${dir} ; pwd)` in		\
+	      `(cd ${srcdir} ; pwd)`* ) ;;		\
 	      * ) rm -rf $${dir} ;;			\
 	    esac ;					\
 	    case $${dir} in				\

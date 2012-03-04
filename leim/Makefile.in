@@ -209,7 +209,7 @@ leim-list.el: ${SUBDIRS} ${TIT_MISC} changed.tit changed.misc ${srcdir}/leim-ext
 	rm -f leim-list.el
 	${RUN_EMACS}  -l ${buildlisppath}/international/quail \
 	  -f batch-byte-compile-if-not-done ${TIT_MISC:.elc=.el}
-	if [ x`(cd ${srcdir} && /bin/pwd)` = x`(/bin/pwd)` ] ; then \
+	if [ x`(cd ${srcdir} && pwd)` = x`(pwd)` ] ; then \
 	  ${RUN_EMACS} -l ${buildlisppath}/international/quail \
 	    --eval "(update-leim-list-file \".\")" ; \
 	else \
@@ -224,11 +224,11 @@ install: all
 	if [ ! -d ${INSTALLDIR} ] ; then \
           umask 022; ${srcdir}/../build-aux/install-sh -d ${INSTALLDIR}; \
 	else true; fi
-	if [ x`(cd ${INSTALLDIR} && /bin/pwd)` != x`(/bin/pwd)` ] ; then \
+	if [ x`(cd ${INSTALLDIR} && pwd)` != x`(pwd)` ] ; then \
 	  rm -f ${INSTALLDIR}/leim-list.el; \
 	  rm -rf ${INSTALLDIR}/quail ${INSTALLDIR}/ja-dic ; \
 	  echo "Copying leim files to ${INSTALLDIR} ..." ; \
-	  if [ x`(cd ${srcdir} && /bin/pwd)` = x`(/bin/pwd)` ] ; then \
+	  if [ x`(cd ${srcdir} && pwd)` = x`(pwd)` ] ; then \
 	    tar -chf - leim-list.el quail ja-dic \
 		| (cd ${INSTALLDIR}; umask 0; tar -xvf - && cat > /dev/null) ;\
 	  else \
