@@ -153,6 +153,6 @@ check: compile-main
 	  els="$$els $$el"; \
 	done; \
 	echo Testing $$els; \
-	$(emacs) $$args -f ert-run-tests-batch-and-exit)
+	time $(emacs) $$args -f ert-run-tests-batch-and-exit)
 
 # Makefile ends here.
