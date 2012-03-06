@@ -38,6 +38,10 @@ typedef unsigned long Time;
 # endif
 #endif
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* On some configurations (hpux8.0, X11R4), sys/time.h and X11/Xos.h
    disagree about the name of the guard symbol.  */
 #ifdef HPUX
@@ -165,5 +169,9 @@ extern int lisp_time_argument (Lisp_Object, time_t *, int *);
 #define EMACS_TIME_GE(T1, T2) (EMACS_TIME_CMP (T1, T2) >= 0)
 #define EMACS_TIME_LT(T1, T2) (EMACS_TIME_CMP (T1, T2) < 0)
 #define EMACS_TIME_LE(T1, T2) (EMACS_TIME_CMP (T1, T2) <= 0)
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* EMACS_SYSTIME_H */

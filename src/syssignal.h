@@ -16,6 +16,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern void init_signals (void);
 
 #ifdef HAVE_PTHREAD
@@ -160,3 +164,8 @@ extern pthread_t main_thread;
 #else /* not FORWARD_SIGNAL_TO_MAIN_THREAD */
 #define SIGNAL_THREAD_CHECK(signo)
 #endif /* not FORWARD_SIGNAL_TO_MAIN_THREAD */
+
+#ifdef __cplusplus
+}
+#endif
+

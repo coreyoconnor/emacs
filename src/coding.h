@@ -26,6 +26,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #ifndef EMACS_CODING_H
 #define EMACS_CODING_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Index to arguments of Fdefine_coding_system_internal.  */
 
 enum define_coding_system_arg_index
@@ -780,5 +784,9 @@ extern Lisp_Object Qcoding_system_error;
 
 extern char emacs_mule_bytes[256];
 extern int emacs_mule_string_char (unsigned char *);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* EMACS_CODING_H */

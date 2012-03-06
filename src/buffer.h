@@ -20,6 +20,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include <sys/types.h> /* for off_t, time_t */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Accessing the parameters of the current buffer.  */
 
 /* These macros come in pairs, one for the char position
@@ -1064,3 +1068,7 @@ static inline int lowercasep (int c)
 
 /* Upcase a character C, or make no change if that cannot be done.  */
 static inline int upcase (int c) { return uppercasep (c) ? c : upcase1 (c); }
+
+#ifdef __cplusplus
+}
+#endif

@@ -16,6 +16,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* Nonzero means use ^S/^Q as cretinous flow control.  */
 extern int flow_control;
@@ -28,4 +31,8 @@ extern int interrupts_deferred;
 
 /* Terminal has meta key */
 extern int meta_key;
+
+#ifdef __cplusplus
+}
+#endif
 

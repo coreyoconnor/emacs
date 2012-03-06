@@ -23,6 +23,11 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #include <gnutls/gnutls.h>
 #include <gnutls/x509.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 typedef enum
 {
   /* Initialization stages.  */
@@ -63,6 +68,10 @@ extern void emacs_gnutls_transport_set_errno (gnutls_session_t state, int err);
 extern Lisp_Object emacs_gnutls_deinit (Lisp_Object);
 
 extern void syms_of_gnutls (void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 

@@ -26,6 +26,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #ifndef EMACS_FONTSET_H
 #define EMACS_FONTSET_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Check if any window system is used now.  */
 extern void (*check_window_system_func) (void);
 
@@ -48,5 +52,9 @@ extern Lisp_Object fontset_ascii (int);
 
 struct font;
 extern int face_for_font (struct frame *, Lisp_Object, struct face *);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* EMACS_FONTSET_H */

@@ -21,6 +21,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include "atimer.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* When Emacs is using signal-driven input, the processing of those
    input signals can get pretty hairy.  For example, when Emacs is
    running under X windows, handling an input signal can entail
@@ -122,6 +126,10 @@ extern int pending_atimers;
 
 /* Defined in keyboard.c */
 extern void reinvoke_input_signal (void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* EMACS_BLOCKINPUT_H */
 

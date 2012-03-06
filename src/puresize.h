@@ -16,6 +16,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Define PURESIZE, the number of bytes of pure Lisp code to leave space for.
 
    At one point, this was defined in config.h, meaning that changing
@@ -79,3 +83,8 @@ extern EMACS_INT pure[];
 
 #define PURE_P(obj) \
   ((uintptr_t) XPNTR (obj) - (uintptr_t) pure <= PURESIZE)
+
+#ifdef __cplusplus
+}
+#endif
+

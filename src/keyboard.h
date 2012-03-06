@@ -19,6 +19,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #include "systime.h"		/* for EMACS_TIME, Time */
 #include "coding.h"             /* for ENCODE_UTF_8 and ENCODE_SYSTEM */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Lisp fields in struct keyboard are hidden from most code and accessed
    via the KVAR macro, below.  Only select pieces of code, like the GC,
    are allowed to use KBOARD_INTERNAL_FIELD.  */
@@ -514,3 +518,8 @@ extern void mark_kboards (void);
 #ifdef WINDOWSNT
 extern const char *const lispy_function_keys[];
 #endif
+
+#ifdef __cplusplus
+}
+#endif
+

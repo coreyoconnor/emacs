@@ -25,6 +25,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include <verify.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* character code	1st byte   byte sequence
    --------------	--------   -------------
         0-7F		00..7F	   0xxxxxxx
@@ -684,5 +688,9 @@ extern Lisp_Object string_escape_byte8 (Lisp_Object);
 /* Return a translation table of id number ID.  */
 #define GET_TRANSLATION_TABLE(id) \
   (XCDR(XVECTOR(Vtranslation_table_vector)->contents[(id)]))
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* EMACS_CHARACTER_H */

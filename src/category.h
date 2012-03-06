@@ -22,6 +22,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* We introduce here three types of object: category, category set,
    and category table.
@@ -109,3 +112,7 @@ extern Lisp_Object _temp_category_set;
    && word_boundary_p (c1, c2))
 
 extern int word_boundary_p (int, int);
+
+#ifdef __cplusplus
+}
+#endif

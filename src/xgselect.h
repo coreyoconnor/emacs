@@ -24,6 +24,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #include "systime.h"
 #include "sysselect.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern int xg_select (int max_fds,
                       SELECT_TYPE *rfds,
                       SELECT_TYPE *wfds,
@@ -31,6 +35,10 @@ extern int xg_select (int max_fds,
                       EMACS_TIME *timeout);
 
 extern void xgselect_initialize (void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* XGSELECT_H */
 

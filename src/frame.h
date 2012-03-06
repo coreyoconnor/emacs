@@ -25,6 +25,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include "dispextern.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 /* Miscellanea.  */
 
@@ -1139,5 +1143,9 @@ extern char *x_get_resource_string (const char *, const char *);
 extern void set_frame_menubar (FRAME_PTR, int, int);
 
 #endif /* HAVE_WINDOW_SYSTEM */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* not EMACS_FRAME_H */

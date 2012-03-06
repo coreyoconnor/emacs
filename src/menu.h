@@ -19,6 +19,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #ifndef MENU_H
 #define MENU_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "systime.h" /* for Time */
 
 extern void x_set_menu_bar_lines (struct frame *f,
@@ -51,4 +55,9 @@ extern Lisp_Object ns_menu_show (FRAME_PTR, int, int, int, int,
 				 Lisp_Object, const char **);
 extern Lisp_Object xmenu_show (FRAME_PTR, int, int, int, int,
 			       Lisp_Object, const char **, Time);
+
+#ifdef __cplusplus
+}
+#endif
+
 #endif /* MENU_H */

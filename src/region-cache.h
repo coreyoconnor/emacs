@@ -18,6 +18,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* This code was written by Jim Blandy <jimb@cs.oberlin.edu> to help
    GNU Emacs better support the gene editor written for the University
@@ -110,3 +113,8 @@ extern int region_cache_backward (struct buffer *BUF,
                                   struct region_cache *CACHE,
                                   ptrdiff_t POS,
                                   ptrdiff_t *NEXT);
+
+#ifdef __cplusplus
+}
+#endif
+

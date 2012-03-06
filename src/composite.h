@@ -25,6 +25,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #ifndef EMACS_COMPOSITE_H
 #define EMACS_COMPOSITE_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Methods to display a sequence of components of a composition.  */
 enum composition_method {
   /* Compose relatively without alternate characters.  */
@@ -315,5 +319,9 @@ extern int composition_update_it (struct composition_it *,
                                   EMACS_INT, EMACS_INT, Lisp_Object);
 
 extern EMACS_INT composition_adjust_point (EMACS_INT, EMACS_INT);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* not EMACS_COMPOSITE_H */

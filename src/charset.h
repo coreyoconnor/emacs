@@ -27,6 +27,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #ifndef EMACS_CHARSET_H
 #define EMACS_CHARSET_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <verify.h>
 
 /* Index to arguments of Fdefine_charset_internal.  */
@@ -543,5 +547,9 @@ extern int string_xstring_p (Lisp_Object);
 extern void map_charset_chars (void (*) (Lisp_Object, Lisp_Object),
                                Lisp_Object, Lisp_Object,
                                struct charset *, unsigned, unsigned);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* EMACS_CHARSET_H */

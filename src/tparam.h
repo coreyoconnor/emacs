@@ -17,6 +17,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* Don't try to include termcap.h.  On some systems, configure finds a
    non-standard termcap.h that the main build won't find.  */
@@ -33,3 +36,8 @@ char *tparam (const char *, char *, int, int, int, int, int);
 extern char PC;
 extern char *BC;
 extern char *UP;
+
+#ifdef __cplusplus
+}
+#endif
+

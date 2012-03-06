@@ -26,6 +26,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #include "gnutls.h"
 #endif
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* This structure records information about a subprocess
    or network connection.
 
@@ -192,3 +196,8 @@ extern void add_read_fd (int fd, fd_callback func, void *data);
 extern void delete_read_fd (int fd);
 extern void add_write_fd (int fd, fd_callback func, void *data);
 extern void delete_write_fd (int fd);
+
+#ifdef __cplusplus
+}
+#endif
+

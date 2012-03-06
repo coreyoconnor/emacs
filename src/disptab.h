@@ -16,6 +16,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Access the slots of a display-table, according to their purpose.  */
 
 #define DISP_TABLE_P(obj)						    \
@@ -95,3 +99,8 @@ extern Lisp_Object Qdisplay_table;
 
 #define SET_GLYPH_FROM_CHAR(glyph, c) \
   SET_GLYPH (glyph, c, DEFAULT_FACE_ID)
+
+#ifdef __cplusplus
+}
+#endif
+

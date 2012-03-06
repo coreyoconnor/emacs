@@ -27,6 +27,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include <intprops.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Use the configure flag --enable-checking[=LIST] to enable various
    types of run time checks for Lisp objects.  */
 
@@ -1929,10 +1933,14 @@ typedef struct {
    Lisp_Object fnname DEFUN_ARGS_ ## maxargs ;				\
    static DECL_ALIGN (struct Lisp_Subr, sname) =			\
      { PVEC_SUBR,							\
-      { .a ## maxargs = fnname },					\
+      { a ## maxargs : fnname },					\
        minargs, maxargs, lname, intspec, 0};				\
    Lisp_Object fnname
 #endif
+
+/* Note above: I used the GNU extension instead of C99 designated initializers. Ugly but it works
+ * around my current troubles.
+ */
 
 /* Note that the weird token-substitution semantics of ANSI C makes
    this work for MANY and UNEVALLED.  */
@@ -3743,5 +3751,9 @@ extern Lisp_Object safe_alloca_unwind (Lisp_Object);
 
 
 #include "globals.h"
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* EMACS_LISP_H */

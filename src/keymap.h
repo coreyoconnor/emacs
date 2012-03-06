@@ -19,6 +19,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #ifndef KEYMAP_H
 #define KEYMAP_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* The maximum byte size consumed by push_key_description.
    All callers should assure that at least this size of memory is
    allocated at the place pointed by the second argument.
@@ -61,5 +65,9 @@ extern void map_keymap (Lisp_Object map, map_keymap_function_t fun, Lisp_Object 
 extern void map_keymap_canonical (Lisp_Object map,
 				  map_keymap_function_t fun,
 				  Lisp_Object args, void *data);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

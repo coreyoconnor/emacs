@@ -21,6 +21,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #ifndef EMACSGTKFIXED_H
 #define EMACSGTKFIXED_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <gtk/gtk.h>
 
 G_BEGIN_DECLS
@@ -56,5 +60,9 @@ extern GtkWidget *emacs_fixed_new (struct frame *f);
 extern GType emacs_fixed_get_type (void);
 
 G_END_DECLS
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* EMACSGTKFIXED_H */

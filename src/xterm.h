@@ -57,14 +57,17 @@ typedef GtkWidget *xt_or_gtk_widget;
 
 #endif /* USE_GTK */
 
-
 /* Bookkeeping to distinguish X versions.  */
 
 
 #ifdef HAVE_X_I18N
 #include <X11/Xlocale.h>
 #endif
-
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define BLACK_PIX_DEFAULT(f) BlackPixel (FRAME_X_DISPLAY (f), \
 					 XScreenNumberOfScreen (FRAME_X_SCREEN (f)))
 #define WHITE_PIX_DEFAULT(f) WhitePixel (FRAME_X_DISPLAY (f), \
@@ -1127,3 +1130,8 @@ extern Lisp_Object Qx_gtk_map_stock;
    (nr).y = (ry),					\
    (nr).width = (rwidth),				\
    (nr).height = (rheight))
+
+#ifdef __cplusplus
+}
+#endif
+

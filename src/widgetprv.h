@@ -25,6 +25,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #include <X11/CoreP.h>
 #include "widget.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct {
   struct frame*	frame;		/* the *emacs* frame object */
 
@@ -69,5 +73,9 @@ typedef struct _EmacsFrameClassRec {	/* full class record declaration */
     CoreClassPart		core_class;
     EmacsFrameClassPart	emacs_frame_class;
 } EmacsFrameClassRec;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* _EmacsFrameP_h */

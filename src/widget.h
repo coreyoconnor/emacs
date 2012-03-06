@@ -21,6 +21,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #ifndef _EmacsFrame_h
 #define _EmacsFrame_h
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define XtNminibuffer "minibuffer"
 #define XtCMinibuffer "Minibuffer"
 #define XtNunsplittable "unsplittable"
@@ -96,5 +100,9 @@ extern struct _DisplayContext* display_context;
 void EmacsFrameSetCharSize (Widget, int, int);
 void widget_store_internal_border (Widget widget);
 void widget_update_wm_size_hints (Widget widget);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* _EmacsFrame_h */

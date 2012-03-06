@@ -16,6 +16,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #ifdef MSDOS
 #include <dpmi.h>
 extern int etext;
@@ -42,3 +46,8 @@ extern char *start_of_data (void);
 #else
 #define EXCEEDS_LISP_PTR(ptr) ((uintptr_t) (ptr) >> VALBITS)
 #endif
+
+#ifdef __cplusplus
+}
+#endif
+

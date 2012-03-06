@@ -31,6 +31,7 @@ srcdir = @srcdir@
 abs_builddir = @abs_builddir@
 VPATH = $(srcdir)
 CC = @CC@
+CXX = g++
 CFLAGS = @CFLAGS@
 CPPFLAGS = @CPPFLAGS@
 LDFLAGS = @LDFLAGS@
@@ -316,7 +317,10 @@ ALL_CFLAGS=-Demacs -DHAVE_CONFIG_H $(MYCPPFLAGS) -I. -I$(srcdir) \
   $(C_WARNINGS_SWITCH) $(CFLAGS)
 ALL_OBJC_CFLAGS=$(ALL_CFLAGS) $(GNU_OBJC_CFLAGS)
 
-.SUFFIXES: .m
+.SUFFIXES: .c .cpp .m
+.cpp.o:
+	@$(MKDEPDIR)
+	$(CXX) -c $(CPPFLAGS) $(ALL_CFLAGS) $<
 .c.o:
 	@$(MKDEPDIR)
 	$(CC) -c $(CPPFLAGS) $(ALL_CFLAGS) $<
@@ -336,12 +340,12 @@ base_obj = dispnew.o frame.o scroll.o xdisp.o menu.o $(XMENU_OBJ) window.o \
 	cmds.o casetab.o casefiddle.o indent.o search.o regex.o undo.o \
 	alloc.o data.o doc.o editfns.o callint.o \
 	eval.o floatfns.o fns.o font.o print.o lread.o \
-	syntax.o $(UNEXEC_OBJ) bytecode.o \
+	syntax.o $(UNEXEC_OBJ) \
 	process.o gnutls.o callproc.o \
 	region-cache.o sound.o atimer.o \
 	doprnt.o intervals.o textprop.o composite.o xml.o \
 	$(MSDOS_OBJ) $(MSDOS_X_OBJ) $(NS_OBJ) $(CYGWIN_OBJ) $(FONT_OBJ)
-obj = $(base_obj) $(NS_OBJC_OBJ)
+obj = $(base_obj) bytecode.o $(NS_OBJC_OBJ)
 
 ## Object files used on some machine or other.
 ## These go in the DOC file on all machines in case they are needed.
@@ -437,7 +441,7 @@ buildobj.h: Makefile
 
 globals.h: gl-stamp; @true
 
-GLOBAL_SOURCES = $(base_obj:.o=.c) $(NS_OBJC_OBJ:.o=.m)
+GLOBAL_SOURCES = $(base_obj:.o=.c) bytecode.cpp $(NS_OBJC_OBJ:.o=.m)
 
 gl-stamp: $(libsrc)/make-docfile$(EXEEXT) $(GLOBAL_SOURCES)
 	@rm -f gl-tmp

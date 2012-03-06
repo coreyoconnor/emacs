@@ -38,6 +38,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include <unistd.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 /* Special cases - inhibiting the use of certain features.  */
 
@@ -118,3 +122,8 @@ struct emacs_tty {
 /* From sysdep.c or w32.c  */
 extern int serial_open (char *);
 extern void serial_configure (struct Lisp_Process *, Lisp_Object);
+
+#ifdef __cplusplus
+}
+#endif
+

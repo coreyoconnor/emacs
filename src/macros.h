@@ -16,6 +16,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 
 /* Number of successful iterations so far
    for innermost keyboard macro.
@@ -42,3 +46,8 @@ extern void finalize_kbd_macro_chars (void);
 /* Store a character into kbd macro being defined */
 
 extern void store_kbd_macro_char (Lisp_Object);
+
+#ifdef __cplusplus
+}
+#endif
+

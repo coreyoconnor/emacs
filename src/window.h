@@ -22,6 +22,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include "dispextern.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern Lisp_Object Qleft, Qright;
 
 /* Windows are allocated as if they were vectors, but then the
@@ -919,5 +923,9 @@ extern void init_window_once (void);
 extern void init_window (void);
 extern void syms_of_window (void);
 extern void keys_of_window (void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* not WINDOW_H_INCLUDED */

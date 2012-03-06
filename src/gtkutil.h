@@ -26,6 +26,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #include <gtk/gtk.h>
 #include "frame.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Minimum and maximum values used for GTK scroll bars  */
 
 #define XG_SB_MIN 1
@@ -182,6 +186,10 @@ extern void xg_initialize (void);
 /* Setting scrollbar values invokes the callback.  Use this variable
    to indicate that the callback should do nothing.  */
 extern int xg_ignore_gtk_scrollbar;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* USE_GTK */
 #endif /* GTKUTIL_H */

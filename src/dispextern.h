@@ -22,6 +22,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #ifndef DISPEXTERN_H_INCLUDED
 #define DISPEXTERN_H_INCLUDED
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #ifdef HAVE_X_WINDOWS
 
 #include <X11/Xlib.h>
@@ -3381,7 +3385,7 @@ enum resource_types
 };
 
 extern Lisp_Object x_get_arg (Display_Info *, Lisp_Object,
-                              Lisp_Object, const char *, const char *class,
+                              Lisp_Object, const char *, const char *in_class,
                               enum resource_types);
 extern Lisp_Object x_frame_get_and_record_arg (struct frame *, Lisp_Object,
                                                Lisp_Object,
@@ -3393,5 +3397,9 @@ extern Lisp_Object x_default_parameter (struct frame *, Lisp_Object,
                                         enum resource_types);
 
 #endif /* HAVE_WINDOW_SYSTEM */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* not DISPEXTERN_H_INCLUDED */

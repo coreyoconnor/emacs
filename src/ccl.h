@@ -26,6 +26,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #ifndef EMACS_CCL_H
 #define EMACS_CCL_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Macros for exit status of CCL program.  */
 #define CCL_STAT_SUCCESS	0 /* Terminated successfully.  */
 #define CCL_STAT_SUSPEND_BY_SRC	1 /* Terminated by empty input.  */
@@ -108,5 +112,9 @@ EXFUN (Fccl_program_p, 1);
     if (NILP (Fccl_program_p (x)))		\
       wrong_type_argument (Qcclp, (x));	\
   } while (0);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* EMACS_CCL_H */

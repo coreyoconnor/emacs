@@ -24,6 +24,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include "ccl.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* We have three types of Lisp objects related to font.
 
    FONT-SPEC
@@ -867,5 +871,9 @@ extern void font_deferred_log (const char *, Lisp_Object, Lisp_Object);
 #else  /* not FONT_DEBUG */
 #define font_assert(X)	(void) 0
 #endif	/* not FONT_DEBUG */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif	/* not EMACS_FONT_H */

@@ -18,6 +18,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include "dispextern.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define NULL_INTERVAL ((INTERVAL)0)
 #define INTERVAL_DEFAULT NULL_INTERVAL
 
@@ -339,5 +343,9 @@ extern Lisp_Object get_pos_property (Lisp_Object pos, Lisp_Object prop,
                                      Lisp_Object object);
 
 extern void syms_of_textprop (void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #include "composite.h"

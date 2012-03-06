@@ -21,6 +21,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include "systime.h"		/* for EMACS_TIME */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Forward declaration.  */
 
 struct atimer;
@@ -77,5 +81,9 @@ void init_atimer (void);
 void turn_on_atimers (int);
 void stop_other_atimers (struct atimer *);
 Lisp_Object unwind_stop_other_atimers (Lisp_Object);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* EMACS_ATIMER_H */

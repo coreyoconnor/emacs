@@ -22,6 +22,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 #ifndef EMACS_FTFONT_H
 #define EMACS_FTFONT_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include FT_SIZES_H
@@ -38,6 +42,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
 extern Lisp_Object ftfont_font_format (FcPattern *, Lisp_Object);
 extern FcCharSet *ftfont_get_fc_charset (Lisp_Object);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif	/* EMACS_FTFONT_H */
 

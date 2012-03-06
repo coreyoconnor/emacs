@@ -22,6 +22,10 @@ along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
 #include "systime.h" /* for Time */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 struct glyph;
 struct frame;
 
@@ -665,3 +669,8 @@ extern unsigned char *encode_terminal_code (struct glyph *, int,
 #ifdef HAVE_GPM
 extern void close_gpm (int gpm_fd);
 #endif
+
+#ifdef __cplusplus
+}
+#endif
+

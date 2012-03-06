@@ -16,6 +16,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* We introduce new member `tab_offset'.  We need it because of the
    existence of wide-column characters.  There is a case that the
    line-break occurs at a wide-column character and the number of
@@ -73,3 +77,8 @@ int disptab_matches_widthtab (struct Lisp_Char_Table *disptab,
 /* Recompute BUF's width table, using the display table DISPTAB.  */
 void recompute_width_table (struct buffer *buf,
                             struct Lisp_Char_Table *disptab);
+
+#ifdef __cplusplus
+}
+#endif
+
